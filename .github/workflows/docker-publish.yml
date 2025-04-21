@@ -19,8 +19,8 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
-        push: false # We're not pushing to Docker Hub now
-        tags: image-search-engine:latest  # You can update this to something specific
+        push: false  # Not pushing to Docker Hub
+        tags: image-search-engine:latest
 
     - name: ⚙️ Set up kubectl
       uses: azure/setup-kubectl@v3

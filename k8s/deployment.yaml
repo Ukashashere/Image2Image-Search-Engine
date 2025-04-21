@@ -14,9 +14,10 @@ spec:
     spec:
       containers:
       - name: image-search
-        image: your-dockerhub-username/image-search-engine:latest
+        image: image-search-engine:latest
         ports:
         - containerPort: 8501
+
 ---
 apiVersion: v1
 kind: Service

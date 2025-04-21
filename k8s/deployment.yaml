@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: image-search
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: image-search
+  template:
+    metadata:
+      labels:
+        app: image-search
+    spec:
+      containers:
+      - name: image-search
+        image: image-search-engine:latest
+        ports:
+        - containerPort: 8501
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: image-search-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: image-search
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8501

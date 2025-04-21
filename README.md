@@ -1,5 +1,23 @@
 # Simple Image Search Engine
 
+# Terraform
+
+This is a simple Terraform project that demonstrates how to provision an EC2 instance on AWS.
+
+## Files:
+
+- `main.tf`: Contains the Terraform code to create an EC2 instance.
+- `variables.tf`: Defines variables used in the Terraform code.
+- `outputs.tf`: Defines outputs like instance ID and public IP.
+
+## Usage:
+
+1. Clone this repository.
+2. Run `terraform init` to initialize Terraform.
+3. Run `terraform apply` to apply the configuration.
+4. Run `terraform destroy` to destroy the created resources.
+
+**Note:** Make sure to configure your AWS credentials before running the commands.
 
 ## [Demo](https://www.simple-image-search.xyz/)
 ![](http://yusukematsui.me/project/sis/img/screencapture2.jpg)

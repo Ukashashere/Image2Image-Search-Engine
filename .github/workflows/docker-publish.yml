@@ -1,11 +1,11 @@
-name: Docker CI/CD with Kubernetes
+name: Docker CI/CD (Build Only)
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,18 +19,5 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
-        push: false  # We're not pushing to Docker Hub
+        push: false  # Not pushing to Docker Hub (no username/password used)
         tags: image-search-engine:latest
-
-    - name: ⚙️ Set up kubectl
-      uses: azure/setup-kubectl@v3
-      with:
-        version: 'latest'
-
-    - name: 🔧 Configure Kubeconfig
-      run: |
-        mkdir -p $HOME/.kube
-        echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
-
-    - name: 🚀 Deploy to Kubernetes (with validation off)
-      run: kubectl apply -f k8s/deployment.yaml --validate=false

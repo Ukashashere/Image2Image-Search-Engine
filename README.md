@@ -1,4 +1,4 @@
-# Simple Image Search Engine
+# VGG16 Powered Image Search Engine
 
 # Terraform
 
